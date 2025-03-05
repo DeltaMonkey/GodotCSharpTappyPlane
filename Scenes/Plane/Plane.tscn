@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wyr07e30ucq2"]
+[gd_scene load_steps=11 format=3 uid="uid://wyr07e30ucq2"]
 
 [ext_resource type="Texture2D" uid="uid://bkw4mqhvmy3o6" path="res://Assets/plane/planes_sheet.png" id="1_8bang"]
 [ext_resource type="Script" path="res://Scenes/Plane/Plane.cs" id="1_vcm40"]
@@ -35,15 +35,59 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ysd2"]
 radius = 25.0
 
-[node name="Plane" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_i0inl"]
+resource_name = "power"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gn7y2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxpjl"]
+_data = {
+"RESET": SubResource("Animation_gn7y2"),
+"power": SubResource("Animation_i0inl")
+}
+
+[node name="Plane" type="CharacterBody2D" node_paths=PackedStringArray("_animationPlayer")]
 script = ExtResource("1_vcm40")
+_animationPlayer = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_t6msp")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.396838
+frame_progress = 0.870032
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2ysd2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yxpjl")
+}
