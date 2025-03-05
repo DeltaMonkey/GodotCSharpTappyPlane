@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlt3wppo3imjh"]
+[gd_scene load_steps=4 format=3 uid="uid://dlt3wppo3imjh"]
 
+[ext_resource type="Script" path="res://Scenes/Pipes/Pipes.cs" id="1_6n44i"]
 [ext_resource type="PackedScene" uid="uid://c2yylw8fhj4kw" path="res://Scenes/Pipe/Pipe.tscn" id="1_y57it"]
 [ext_resource type="PackedScene" uid="uid://dfqy4lh0ircl0" path="res://Scenes/Laser/Laser.tscn" id="2_64s8w"]
 
-[node name="Pipes" type="Node2D"]
+[node name="Pipes" type="Node2D" node_paths=PackedStringArray("_visibleOnScreenNotifier2D")]
 z_index = 2
+script = ExtResource("1_6n44i")
+_visibleOnScreenNotifier2D = NodePath("VisibleOnScreenNotifier2D")
 
 [node name="Pipe" parent="." instance=ExtResource("1_y57it")]
 position = Vector2(0, -80)
