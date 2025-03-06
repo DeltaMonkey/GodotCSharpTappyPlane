@@ -3,7 +3,7 @@ using System;
 
 public partial class Pipes : Node2D
 {
-	const float SPEED = 120.0f;
+	const float SCROLL_SPEED = 120.0f;
 	
 	[Export] VisibleOnScreenNotifier2D _visibleOnScreenNotifier2D;
 
@@ -13,21 +13,15 @@ public partial class Pipes : Node2D
 		_visibleOnScreenNotifier2D.ScreenExited += OnScreenExited;
 	}
 
-	private void OnScreenExited() 
-	{
-		QueueFree();
-	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		Position -= new Vector2(SCROLL_SPEED * (float)delta, 0.0f);
 	}
 
-    public override void _PhysicsProcess(double delta)
-    {
-		Vector2 position = GlobalPosition;
-	 	position.X -= SPEED * (float)delta;
-		GlobalPosition = position;
-    }
-
+	private void OnScreenExited() 
+	{
+		QueueFree();
+	}
 }
