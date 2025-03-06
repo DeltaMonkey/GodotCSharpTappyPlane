@@ -7,6 +7,7 @@ public partial class Plane : CharacterBody2D
 	const float POWER = -450.0f;
 
 	[Export] private AnimationPlayer _animationPlayer;
+	[Export] private AnimatedSprite2D _animatedSprite2D;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -33,5 +34,17 @@ public partial class Plane : CharacterBody2D
 		Velocity = velocity;
 
 		MoveAndSlide();
+
+		if(IsOnFloor())
+		{
+			Die();
+		}
+    }
+
+    private void Die()
+    {
+        SetPhysicsProcess(false);
+		_animatedSprite2D.Stop();
+		GD.Print("Die");
     }
 }
