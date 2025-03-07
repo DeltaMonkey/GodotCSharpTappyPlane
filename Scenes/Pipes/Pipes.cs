@@ -20,7 +20,7 @@ public partial class Pipes : Node2D
 		Position -= new Vector2(SCROLL_SPEED * (float)delta, 0.0f);
 	}
 
-	private void OnScreenExited() 
+    private void OnScreenExited() 
 	{
 		QueueFree();
 	}

@@ -37,8 +37,19 @@ public partial class Game : Node2D
 		np.GlobalPosition = new Vector2(_spawnLower.Position.X, GetSpawnY());
 	}
 
+	private void StopPipes()
+	{
+		_spawnTimer.Stop();
+
+		foreach (Pipes pipe in _pipesHolder.GetChildren())
+		{
+			pipe.SetProcess(false);
+		}
+	}
+
 	private void GameOver()
 	{
 		GD.Print("Gameover!");
+		StopPipes();
 	}
 }
