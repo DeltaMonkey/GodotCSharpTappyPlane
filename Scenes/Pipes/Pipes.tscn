@@ -4,16 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://c2yylw8fhj4kw" path="res://Scenes/Pipe/Pipe.tscn" id="1_y57it"]
 [ext_resource type="PackedScene" uid="uid://dfqy4lh0ircl0" path="res://Scenes/Laser/Laser.tscn" id="2_64s8w"]
 
-[node name="Pipes" type="Node2D" node_paths=PackedStringArray("_visibleOnScreenNotifier2D")]
+[node name="Pipes" type="Node2D" node_paths=PackedStringArray("_visibleOnScreenNotifier2D", "_upperPipe", "_lowerPipe", "_laser")]
 z_index = 2
 script = ExtResource("1_6n44i")
 _visibleOnScreenNotifier2D = NodePath("VisibleOnScreenNotifier2D")
+_upperPipe = NodePath("UpperPipe")
+_lowerPipe = NodePath("LowerPipe")
+_laser = NodePath("Laser")
 
-[node name="Pipe" parent="." instance=ExtResource("1_y57it")]
+[node name="UpperPipe" parent="." instance=ExtResource("1_y57it")]
 position = Vector2(0, -80)
 rotation = -3.14159
 
-[node name="Pipe2" parent="." instance=ExtResource("1_y57it")]
+[node name="LowerPipe" parent="." instance=ExtResource("1_y57it")]
 position = Vector2(0, 80)
 
 [node name="Laser" parent="." instance=ExtResource("2_64s8w")]
