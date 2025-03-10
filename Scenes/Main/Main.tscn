@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://coi7h6q3pyoc7"]
+[gd_scene load_steps=5 format=3 uid="uid://coi7h6q3pyoc7"]
 
 [ext_resource type="Texture2D" uid="uid://dge7gnv7jnk0n" path="res://Assets/background/sky.png" id="1_opykp"]
+[ext_resource type="LabelSettings" uid="uid://ijvbmtflaun2" path="res://Resources/LG_72_Red.tres" id="2_7pml8"]
+[ext_resource type="LabelSettings" uid="uid://bppoes67kuqyu" path="res://Resources/LG_48_White.tres" id="3_glcaa"]
+[ext_resource type="LabelSettings" uid="uid://balvkwmxu41v2" path="res://Resources/LG_24_Red.tres" id="4_b0au6"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -21,61 +24,47 @@ grow_vertical = 2
 texture = ExtResource("1_opykp")
 expand_mode = 5
 
-[node name="Label" type="Label" parent="."]
+[node name="MC" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -25.5
-offset_right = 25.5
-offset_bottom = 49.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "TAPPY
 PLANE"
+label_settings = ExtResource("2_7pml8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -37.5
-offset_right = 50.0
-offset_bottom = 37.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label2" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "PRESS SPACE
 TO
 PLAY"
+label_settings = ExtResource("3_glcaa")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 92.0
-grow_vertical = 0
+[node name="Label3" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 text = "HIGHSCORE"
+label_settings = ExtResource("4_b0au6")
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -37.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="Label4" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 text = "0000"
+label_settings = ExtResource("4_b0au6")
 horizontal_alignment = 2
 vertical_alignment = 1
