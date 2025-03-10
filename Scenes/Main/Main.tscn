@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://coi7h6q3pyoc7"]
+[gd_scene load_steps=9 format=3 uid="uid://coi7h6q3pyoc7"]
 
+[ext_resource type="Script" path="res://Scenes/Main/Main.cs" id="1_1aja1"]
 [ext_resource type="Texture2D" uid="uid://dge7gnv7jnk0n" path="res://Assets/background/sky.png" id="1_opykp"]
 [ext_resource type="LabelSettings" uid="uid://ijvbmtflaun2" path="res://Resources/LG_72_Red.tres" id="2_7pml8"]
 [ext_resource type="LabelSettings" uid="uid://bppoes67kuqyu" path="res://Resources/LG_48_White.tres" id="3_glcaa"]
@@ -35,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1aja1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(24, 24)
