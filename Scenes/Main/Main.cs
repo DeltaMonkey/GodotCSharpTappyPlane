@@ -3,9 +3,6 @@ using System;
 
 public partial class Main : Control
 {
-	private static readonly PackedScene GAME_SCENE =
-				GD.Load<PackedScene>("res://Scenes/Game/Game.tscn");
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -16,7 +13,7 @@ public partial class Main : Control
 	{
 		if(Input.IsActionJustPressed("fly"))
 		{
-			GetTree().ChangeSceneToPacked(GAME_SCENE);
+			GameManager.LoadGame();
 		}
 	}
 }
