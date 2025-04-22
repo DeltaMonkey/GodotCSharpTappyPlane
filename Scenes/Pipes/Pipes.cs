@@ -18,7 +18,20 @@ public partial class Pipes : Node2D
 		_upperPipe.BodyEntered += OnPipeBodyEntered;
 		_lowerPipe.BodyEntered += OnPipeBodyEntered;
 		_laser.BodyEntered += OnLaserBodyEntered;
+
+		SignalManager.Instance.OnPlaneDied += OnPlaneDied;
 	}
+
+    public override void _ExitTree()
+    {
+        SignalManager.Instance.OnPlaneDied -= OnPlaneDied;
+    }
+
+
+    private void OnPlaneDied()
+    {
+        SetProcess(false);
+    }
 
     private void OnLaserBodyEntered(Node2D body)
     {
