@@ -18,7 +18,17 @@ public partial class Game : Node2D
 		_spawnTimer.Timeout += SpawnPipes;
 		SignalManager.Instance.OnPlaneDied += GameOver;
 
+		GD.Print("Game");
+		//ScoreManager.ResetScore();
+		CallDeferred("LateStuff");
+
 		SpawnPipes();
+	}
+
+	private void LateStuff()
+	{
+		GD.Print("LateStuff");
+		ScoreManager.ResetScore();
 	}
 
     public override void _ExitTree()

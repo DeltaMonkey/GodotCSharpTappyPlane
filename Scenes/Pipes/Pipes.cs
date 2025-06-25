@@ -35,7 +35,8 @@ public partial class Pipes : Node2D
 
     private void OnLaserBodyEntered(Node2D body)
     {
-        GD.Print("Score!");
+        ScoreManager.IncrementScore();
+		// emit
     }
 
     private void OnPipeBodyEntered(Node2D body)
