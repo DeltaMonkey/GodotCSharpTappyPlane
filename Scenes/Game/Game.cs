@@ -10,7 +10,7 @@ public partial class Game : Node2D
 	// [Export] private Node2D _pipesHolder;
 	// [Export] private Plane _plane;
 
-	private bool _gameOver = false;
+	// private bool _gameOver = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -39,14 +39,14 @@ public partial class Game : Node2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
-		if(Input.IsActionJustPressed("fly") && _gameOver)
-		{
-			ChangeToMain();
-		}
+		// if(Input.IsActionJustPressed("fly") && _gameOver)
+		// {
+		// 	ChangeToMain();
+		// }
 
 		if(Input.IsKeyPressed(Key.Q))
 		{
-			ChangeToMain();
+			GameManager.LoadMain();
 		}
 	}
 
@@ -63,25 +63,26 @@ public partial class Game : Node2D
 		np.GlobalPosition = new Vector2(_spawnLower.Position.X, GetSpawnY());
 	}
 
-	private void StopPipes()
-	{
-		_spawnTimer.Stop();
+	// private void StopPipes()
+	// {
+	// _spawnTimer.Stop();
 
-		// foreach (Pipes pipe in _pipesHolder.GetChildren())
-		// {
-		// 	pipe.SetProcess(false);
-		// }
-	}
+	// foreach (Pipes pipe in _pipesHolder.GetChildren())
+	// {
+	// 	pipe.SetProcess(false);
+	// }
+	// }
 
 	private void GameOver()
 	{
 		GD.Print("Gameover!");
-		StopPipes();
-		_gameOver = true;
+		// StopPipes();
+		_spawnTimer.Stop();
+		// _gameOver = true;
 	}
 
-	private void ChangeToMain()
-	{
-		GameManager.LoadMain();
-	}
+	// private void ChangeToMain()
+	// {
+	// 	GameManager.LoadMain();
+	// }
 }
