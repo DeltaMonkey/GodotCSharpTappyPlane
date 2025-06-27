@@ -35,6 +35,7 @@ public partial class Pipes : Node2D
 	private void OnLaserBodyEntered(Node2D body)
 	{
 		ScoreManager.IncrementScore();
+		_laser.BodyEntered -= OnLaserBodyEntered;
 		_scoreSound.Play();
 		// emit
 	}
