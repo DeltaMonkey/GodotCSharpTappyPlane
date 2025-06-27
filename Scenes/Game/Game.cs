@@ -16,7 +16,8 @@ public partial class Game : Node2D
 	public override void _Ready()
 	{
 		_spawnTimer.Timeout += SpawnPipes;
-		SignalManager.Instance.OnPlaneDied += GameOver;
+		// SignalManager.Instance.OnPlaneDied += GameOver;
+		SignalManager.Instance.Connect(SignalManager.SignalName.OnPlaneDied, Callable.From(GameOver));
 
 		GD.Print("Game");
 		//ScoreManager.ResetScore();
@@ -31,10 +32,10 @@ public partial class Game : Node2D
 		ScoreManager.ResetScore();
 	}
 
-    public override void _ExitTree()
-    {
-        SignalManager.Instance.OnPlaneDied -= GameOver;
-    }
+    // public override void _ExitTree()
+    // {
+    //     SignalManager.Instance.OnPlaneDied -= GameOver;
+    // }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
